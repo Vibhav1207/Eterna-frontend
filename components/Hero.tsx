@@ -11,11 +11,8 @@ export default function Hero() {
           EternaVaultX is a next-gen digital vault designed to store messages, files, and smart contracts with
           time-locked encryption and blockchain security.
         </p>
-        <Button size="lg" className="text-lg px-8 py-4" onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}>
-          Join the Waitlist
-        </Button>
-        <a href="#" className="holo-btn-reb">
-          <span className="cta-x">Join the Rebellion!</span>
+        <a href="#" className="holo-btn-reb" onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}>
+          <span className="cta-x">Join the Waitlist</span>
           <span className="skew top"></span>
           <span className="skew bottom"></span>
         </a>

@@ -1,4 +1,4 @@
-/* Colors */
+
 :root {
     --da-red: #ff443d;
     --lighter-red: #ff7570;
@@ -6,7 +6,6 @@
     --text-hover-red: #ffd8d6;
   }
   
-  /* Holographic Button */
   .holo-btn-reb {
     color: var(--da-red);
     font: normal 1.1em/3.11em "Electrolize", "Cultive Mono", Tahoma, sans-serif;
@@ -23,7 +22,7 @@
     text-rendering: optimizeLegibility;
   }
   
-  /* Text Span */
+ 
   .holo-btn-reb .cta-x {
     width: 100%;
     display: block;
@@ -33,7 +32,7 @@
     z-index: 2;
   }
   
-  /* Skewed Box */
+  
   .skew {
     position: absolute;
     left: 0;
@@ -41,6 +40,7 @@
     height: 100%;
     transform: skew(-20deg);
     border: 1px solid transparent;
+    top: -3px;
     transition: all 330ms linear;
     box-shadow: 0 0 13px rgba(255, 9, 0, 0.6) inset;
   }
@@ -60,7 +60,7 @@
     box-shadow: 0 0 22px rgba(255, 9, 0, 0.6) inset;
   }
   
-  /* Top and Bottom Skew */
+  
   .top {
     margin-top: -60px;
   }
@@ -69,7 +69,7 @@
     margin-top: -42px;
   }
   
-  /* Animation */
+
   @keyframes holox-reb {
     0% {
       box-shadow: 0 0 13px rgba(255, 9, 0, 0.6) inset;
