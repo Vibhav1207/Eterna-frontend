@@ -6,53 +6,80 @@
     --text-hover-red: #ffd8d6;
   }
   
-  .holo-btn-fed {
-    position: relative;
-    display: inline-block;
-    padding: 12px 24px;
-    font-size: 1.2em;
-    font-family: Electrolize, 'Cultive Mono', Tahoma, sans-serif;
-    text-transform: uppercase;
+  .holo-btn-reb {
+    color: var(--da-red);
+    font: normal 1.1em/3.11em "Electrolize", "Cultive Mono", Tahoma, sans-serif;
     text-decoration: none;
-    color: white; /* Always white text */
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    overflow: hidden;
-  }
-  
-  /* Add the glowing box effect */
-  .holo-btn-fed::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(45deg, #00f7ff, #99fcff);
-    clip-path: polygon(0% 100%, 100% 100%, 100% 0, 0 0);
-    z-index: -1;
-    transition: transform 0.3s ease-in-out;
-    transform: translateY(3px); /* Move box up */
-  }
-  
-  /* Move box up on hover */
-  .holo-btn-fed:hover::before {
-    transform: translateY(0);
-    box-shadow: 0 0 20px rgba(17, 241, 255, 0.8);
-  }
-  
-  /* Additional glowing effect */
-  .holo-btn-fed::after {
-    content: "";
-    position: absolute;
-    inset: 2px;
-    background: black; /* Inner button background */
-    z-index: -1;
-  }
-  
-  /* Text alignment fix */
-  .holo-btn-fed span.cta-d {
-    position: relative;
+    text-transform: uppercase;
     display: inline-block;
-    text-align: center;
-    line-height: 1.5;
+    height: 60px;
+    position: relative;
+    transition: all 330ms linear;
+  }
+  
+  .holo-btn-reb:hover {
+    color: var(--text-hover-red);
+    text-rendering: optimizeLegibility;
+  }
+  
+ 
+  .holo-btn-reb .cta-x {
+    width: 100%;
+    display: block;
+    top: 2px;
+    padding: 0 29px;
+    text-shadow: 0 0 30px var(--text-shadow-red);
+    position: relative;
+    z-index: 2;
+  }
+  
+  
+  .skew {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: skew(-20deg);
+    border: 1px solid transparent;
+    transition: all 330ms linear;
+    box-shadow: 0 0 13px rgba(255, 9, 0, 0.6) inset;
+  }
+  
+  .holo-btn-reb:hover .top {
+    margin-top: -55px;
+    animation: none;
+    box-shadow: none;
+  }
+  
+  .holo-btn-reb:hover .bottom {
+    margin-top: -47px;
+  }
+  
+  .holo-btn-reb:active .skew {
+    transform: skew(-45deg) translateY(-3px);
+    animation: none;
+    box-shadow: 0 0 22px rgba(255, 9, 0, 0.6) inset;
+  }
+  
+  
+  .top {
+    margin-top: -60px;
+  }
+  
+  .bottom {
+    margin-top: -42px;
+  }
+  
+
+  @keyframes holox-reb {
+    0% {
+      box-shadow: 0 0 13px rgba(255, 9, 0, 0.6) inset;
+    }
+    50% {
+      box-shadow: 0 0 14px rgba(255, 9, 0, 1) inset;
+    }
+    100% {
+      box-shadow: 0 0 13px rgba(255, 9, 0, 0.6) inset;
+    }
   }
   
