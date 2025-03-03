@@ -42,7 +42,7 @@
     transform: skew(-20deg);
     border: 1px solid transparent;
     transition: all 330ms linear;
-    box-shadow: 0 0 13px rgba(255, 9, 0, 0.6) inset;
+    box-shadow: 0 0 13px rgba(3, 170, 231, 0.6) inset;
   }
   
   .holo-btn-reb:hover .top {
@@ -58,7 +58,7 @@
   .holo-btn-reb:active .skew {
     transform: skew(-45deg) translateY(-3px);
     animation: none;
-    box-shadow: 0 0 22px rgba(255, 9, 0, 0.6) inset;
+    box-shadow: 0 0 22px rgba(3, 170, 231, 0.6) inset;
   }
   
   
@@ -73,13 +73,13 @@
 
   @keyframes holox-reb {
     0% {
-      box-shadow: 0 0 13px rgba(255, 9, 0, 0.6) inset;
+      box-shadow: 0 0 13px rgba(3, 170, 231, 0.6) inset;
     }
     50% {
-      box-shadow: 0 0 14px rgba(255, 9, 0, 1) inset;
+      box-shadow: 0 0 14px rgba(3, 170, 231, 0.6) inset;
     }
     100% {
-      box-shadow: 0 0 13px rgba(255, 9, 0, 0.6) inset;
+      box-shadow: 0 0 13px rgba(3, 170, 231, 0.6) inset;
     }
   }
   
