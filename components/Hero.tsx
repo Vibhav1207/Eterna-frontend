@@ -1,4 +1,4 @@
-import "./HoloButton.css"; // Import the new CSS file
+import "./joinbutton.css"; // Import the new CSS file
 
 export default function Hero() {
   return (
