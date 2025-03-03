@@ -1,5 +1,6 @@
 'use client'
 import { Button } from "@/components/ui/button"
+import "../components/joinbutton.css"
 
 export default function Hero() {
   return (
@@ -13,6 +14,11 @@ export default function Hero() {
         <Button size="lg" className="text-lg px-8 py-4" onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}>
           Join the Waitlist
         </Button>
+        <a href="#" className="holo-btn-reb">
+          <span className="cta-x">Join the Rebellion!</span>
+          <span className="skew top"></span>
+          <span className="skew bottom"></span>
+        </a>
       </div>
     </section>
   )

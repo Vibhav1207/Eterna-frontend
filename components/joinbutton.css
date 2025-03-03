@@ -1,0 +1,59 @@
+.holo-btn-reb {
+    color: #ff443d;
+    font: normal 1.1em/3.11em Electrolize, 'Cultive Mono', Tahoma, sans-serif;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: block;
+    height: 60px;
+    transition: all 330ms linear;
+    text-align: center;
+    position: relative;
+    padding: 0 30px;
+  }
+  
+  .holo-btn-reb:hover {
+    color: #ffd8d6;
+    text-rendering: optimizeLegibility;
+  }
+  
+  .holo-btn-reb:hover .top {
+    margin-top: -55px;
+    animation: none;
+    box-shadow: none;
+  }
+  
+  .holo-btn-reb:hover .bottom {
+    margin-top: -47px;
+  }
+  
+  .holo-btn-reb:active .skew {
+    animation: none;
+    box-shadow: 0 0 22px rgba(255, 9, 0, 0.6) inset;
+  }
+  
+ 
+  .skew {
+    transform: skew(-45deg);
+    border: 1px solid transparent;
+    border-right-width: 2px;
+    border-image: linear-gradient(to top left, #ff7570 0%, #ff443d 100%) 1;
+    animation: holox-reb 5.4s ease 1s infinite;
+    padding: 24px;
+    display: block;
+    transition: all 330ms linear;
+    box-shadow: 0 0 13px rgba(255, 9, 0, 0.6) inset;
+  }
+  
+
+  @keyframes holox-reb {
+    0% {
+      box-shadow: 0 0 13px rgba(255, 9, 0, 0.6) inset;
+    }
+    50% {
+      box-shadow: 0 0 14px rgba(255, 9, 0, 1) inset;
+    }
+    100% {
+      box-shadow: 0 0 13px rgba(255, 9, 0, 0.6) inset;
+    }
+  }
+  
