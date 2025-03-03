@@ -1,49 +1,108 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import { useTheme } from "next-themes"
-import { Moon, Sun } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
+import { Lock, Menu, X, Shield, User, Settings, Home, Upload, CreditCard } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { cn } from "@/lib/utils";
 
-export default function Navbar() {
-  const [mounted, setMounted] = useState(false)
-  const { theme, setTheme } = useTheme()
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
-  useEffect(() => setMounted(true), [])
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
 
-  if (!mounted) return null
+  const navItems = [
+    { name: "Dashboard", href: "/dashboard", icon: Home },
+    { name: "Upload", href: "/upload", icon: Upload },
+    { name: "Files", href: "/files", icon: Lock },
+    { name: "Subscription", href: "/subscription", icon: CreditCard },
+    { name: "Profile", href: "/profile", icon: User },
+    { name: "Settings", href: "/settings", icon: Settings },
+  ];
 
   return (
-    <nav className="fixed w-full z-10 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+    <nav className="border-b bg-background">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <Link href="/" className="text-2xl font-bold">
-              EternaVaultX
+            <Link href="/" className="flex items-center">
+              <Shield className="h-8 w-8 text-primary" />
+              <span className="ml-2 text-xl font-bold">EternaVaultX</span>
             </Link>
           </div>
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
-              <Link href="#features" className="hover:text-primary">
-                Features
-              </Link>
-              <Link href="#waitlist" className="hover:text-primary">
-                Join Waitlist
-              </Link>
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                aria-label="Toggle theme"
-              >
-                {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-              </Button>
-            </div>
+
+          {/* Desktop navigation */}
+          <div className="hidden md:flex md:items-center md:space-x-4">
+            {navItems.map((item) => {
+              const Icon = item.icon;
+              return (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className={cn(
+                    "flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors",
+                    pathname === item.href
+                      ? "bg-primary/10 text-primary"
+                      : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+                  )}
+                >
+                  <Icon className="h-4 w-4 mr-2" />
+                  {item.name}
+                </Link>
+              );
+            })}
+            <ThemeToggle />
+          </div>
+
+          {/* Mobile menu button */}
+          <div className="flex items-center md:hidden">
+            <ThemeToggle />
+            <Button
+              variant="ghost"
+              size="icon"
+              className="ml-2"
+              onClick={toggleMenu}
+              aria-label="Toggle menu"
+            >
+              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </Button>
           </div>
         </div>
       </div>
-    </nav>
-  )
-}
 
+      {/* Mobile menu */}
+      {isOpen && (
+        <div className="md:hidden">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            {navItems.map((item) => {
+              const Icon = item.icon;
+              return (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className={cn(
+                    "flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors",
+                    pathname === item.href
+                      ? "bg-primary/10 text-primary"
+                      : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+                  )}
+                  onClick={() => setIsOpen(false)}
+                >
+                  <Icon className="h-4 w-4 mr-2" />
+                  {item.name}
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      )}
+    </nav>
+  );
+};
+
+export default Navbar;
