@@ -7,7 +7,7 @@
   }
   
   .holo-btn-reb {
-    color: white;
+    color: var(--da-red);
     font: normal 1.1em/3.11em "Electrolize", "Cultive Mono", Tahoma, sans-serif;
     text-decoration: none;
     text-transform: uppercase;
@@ -40,9 +40,8 @@
     height: 100%;
     transform: skew(-20deg);
     border: 1px solid transparent;
-    top: -3px;
     transition: all 330ms linear;
-    box-shadow: 0 0 13px rgba(102, 102, 102, 0.6) inset;
+    box-shadow: 0 0 13px rgba(255, 9, 0, 0.6) inset;
   }
   
   .holo-btn-reb:hover .top {
