@@ -1,47 +1,58 @@
-/* Apply Federation Button Styling */
-.holo-btn-fed {
-    color: white; /* Text always white */
-    font: normal 1.1em/3.11em Electrolize, 'Cultive Mono', Tahoma, sans-serif;
-    text-decoration: none;
-    text-transform: uppercase;
-    display: block;
-    height: 60px;
-    transition: all 330ms linear;
-    position: relative;
-    text-align: center;
+
+:root {
+    --da-red: #ff443d;
+    --lighter-red: #ff7570;
+    --text-shadow-red: #ff0900;
+    --text-hover-red: #ffd8d6;
   }
   
-  /* Ensure the text is perfectly centered */
+  .holo-btn-fed {
+    position: relative;
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 1.2em;
+    font-family: Electrolize, 'Cultive Mono', Tahoma, sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white; /* Always white text */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  
+  /* Add the glowing box effect */
+  .holo-btn-fed::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, #00f7ff, #99fcff);
+    clip-path: polygon(0% 100%, 100% 100%, 100% 0, 0 0);
+    z-index: -1;
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(3px); /* Move box up */
+  }
+  
+  /* Move box up on hover */
+  .holo-btn-fed:hover::before {
+    transform: translateY(0);
+    box-shadow: 0 0 20px rgba(17, 241, 255, 0.8);
+  }
+  
+  /* Additional glowing effect */
+  .holo-btn-fed::after {
+    content: "";
+    position: absolute;
+    inset: 2px;
+    background: black; /* Inner button background */
+    z-index: -1;
+  }
+  
+  /* Text alignment fix */
   .holo-btn-fed span.cta-d {
     position: relative;
-    top: 2px; /* Fine-tune to keep it centered */
     display: inline-block;
-  }
-  
-  /* Box Styling with Hover Animation */
-  .holo-btn-fed .skew {
-    transform: skew(-45deg) translateY(-3px); /* Move box 3px up */
-    border-image: linear-gradient(top left, #99fcff 0%, #00f7ff 100%) 1; /* Federation Blue */
-    box-shadow: 0 0 13px rgba(17, 241, 255, 0.6) inset;
-    animation: holox-fed 5.4s ease 1s infinite;
-  }
-  
-  /* Adjust Hover Effects */
-  .holo-btn-fed:hover {
-    color: #e5feff; /* Light blue on hover */
-  }
-  
-  .holo-btn-fed:hover .top {
-    margin-top: -55px;
-    animation: none;
-    box-shadow: none;
-  }
-  
-  .holo-btn-fed:hover .bottom {
-    margin-top: -47px;
-  }
-  
-  .holo-btn-fed:active .skew {
-    box-shadow: 0 0 22px rgba(17, 241, 255, 0.6) inset;
+    text-align: center;
+    line-height: 1.5;
   }
   
